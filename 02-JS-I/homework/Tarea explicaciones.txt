@@ -1,0 +1,46 @@
+Variables: Es un texto cualquiera al cual le damos una equivalencia a otro texto para que la computadora, cuando le escribamos el primer texto, lo convierta automaticamente en el segundo. Es decir, si yo escribo la variable: "pais = argentina", lo que va a pasar es que cada vez que escribamos "pais" el sistema lo va a reconocer y cambiar automaticamente a argentina. Ejemplo:
+var nombre = "Milton"
+en este caso cuando se introduzca nombre (sin comillas) el sistema entenderá que se trata de Milton.
+
+Strings: Un string es un conjunto de caracteres escrito entre comillas. Puede estar compuesto por letras, numeros, simbolos, o cualquier mezcla proveniente de los mencionados. Cabe destacar que si uso un numero entre comillas (es decir en forma de string) el sistema lo reconocera como string y no podremos hacer calculos con el, ya que solo lo interpretará como texto inerte. Ejemplo:
+"50" + "30"
+5030
+(en este caso como el 50 y el 30 están entre comillas, confoman un string, y por eso cuando se suman simplemente se juntan como pasaría con cualquier otro caractér)
+
+Funciones: Las funciones estan pensadas para llevar a cabo tareas o hacer calculos. Para lograrlo, escribimos la palabra "function", separado con un espacio le damos el nombre que queramos a la función, seteamos un parametro (trabaja como una Variable. Explicado arriba) entre parentesis, y escribimos entre corchetes el contenido de dicha función. Fuera de la función, escribiendo el nombre de la misma y entre parentesis el argumento, podemos darle una correlación al parametro. Es decir, que cada vez que se llame al parametro, el argumento lo reemplazará. Veamoslo con un ejemplo:
+
+function saludo(nombre) {
+  console.log('Hola ' + nombre)
+}
+
+saludo('Milton');
+
+EL RESULTADO SERÁ:
+
+Hola Milton
+
+En conclusión, estas funciones son muy utiles en trabajos repetitivos, ya que definiendo ciertos parametros y argumentos podemos modificar texto clave en masa.
+
+Cuando queremos que nuestra función nos devuelva un resultado de forma visible debemos usar la palabra "return" que significa devolver. Ejemplo:
+function suma(a, b) {
+  return a + b;
+}
+var a = 1;
+var b = 2;
+
+3
+
+En este caso, la función nos devuelve en pantalla el resultado de la operación, gracias al uso de la palabra return. De no haberla usado, la suma se hubiera hecho, pero no la veriamos en la consola tras ingresar la función.
+
+Declaraciones: Aveces necesitamos que la computadora determine que hacer si se da una determinada condición. Acá entra en juego el uso del "if". Por ejemplo, si necesito que alguien ingrese su edad para con ese dato determinar si lo puedo dejar entrar a mi sitio web o no, puedo usar este recurso de la siguiente manera:
+
+if (edad > 18) {
+return "Bienvenido"
+}
+else
+  return "No puedes ingresar"
+
+Booleanos: son datos que trabajan en forma binaria, es decir, da solo dos opciones, verdadero o falso. Nos permitiria setear una respuesta de "si o no" a alguna pregunta en particular, ejemplo:
+var sosHumano = true;
+hay solo dos opciones, true o false.
+
