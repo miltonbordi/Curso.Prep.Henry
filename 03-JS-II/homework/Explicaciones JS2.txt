@@ -1,0 +1,31 @@
+BUCLE FOR: Un bucle es una cosa que se repite muchas veces. Este bucle en particular te permite setear 3 parametros: el valor con el que inicia, el valor al cual se cancela el bucle (con el que finaliza), y el paso (cuanto incrementa o disminuye en cada repetición.
+ Ejemplo de un bucle for: 
+
+for ( var i = 1 ; i < 10 ; i++) {
+	console.log(i)
+	}
+ En este caso estamos diciendo que el bucle comenzará en 1 y correra hasta que sea menor de 10, es decir, 9. Irá sumando de a 1 tal como es especificado con i++ (Si quisieramos que aumente de a 5 por ejemplo podemos usar i+=5). Esos serían los parametros del bucle, luego tenemos entre curly braces la acción a ejecutar, y es la de imprimir en la consola (console.log) el valor i. Por lo tanto se imprimirán los numeros del 1 al 9.
+
+OPERADORES LOGICOS BINARIOS
+
+&&: Este operador es el equivalente a decir Y (AND en inglés). Es muy intuitivo su uso, ya que como en la vida real, cuando usamos el operador && (y) queremos incluir a las dos cosas que se están mencionando. No queremos dejar afuera ni una, ni la otra. Queremos las dos condiciones incluidas. Es decir, si digo tengo un auto y una bicicleta, estoy afirmando que tengo las dos cosas, no solo el auto, ni tampoco solo la bicicleta. Si alguien me pregunta que tengo, la condición necesaria para que esa pregunta sea respondida adecuadamente es que se incluyan ambas cosas. Volviendo a la programación, usaremos el && cuando queramos que se cumplan todas las condiciones que estan entre estos operadores, es decir, si tengo la siguiente expresión:
+if (x > 5 && x < 10) {
+	console.log('Hola')
+	}
+En este caso x NECESARIAMENTE tiene que ser mayor a 5 Y también NECESARIAMENTE tiene que ser menor a 10. Si solo se cumpliría una de las dos (Ejemplo: si x fuese 12 sería mayor a 5, pero no sería menor a 10. Caso contrario si x fuese 2 sería menor a 10 pero no sería mayor a 5. SI O SI x tiene que ser un numero entre el 6 y el 9).
+
+
+||: Este operador es el equivalente a decir O (OR en inglés). Tambien funciona como esperamos. Es decir, mientras se de aunque sea una de las condiciones pedidas entre este operador, la función se va a ejecutar correctamente. Volviendo al ejemplo anterior, si en este caso usaramos el || en vez del $$ se podría estar en lo correcto con solo cumplir una de las condiciones pedidas. Citemos el ejemplo para dejarlo claro:
+if (x > 5 || x < 10) {
+	console.log('Hola')
+	} 
+En este caso, si x es mayor a 5, SIN IMPORTAR si x no es menor a 10, se va a ejecutar la función (Ejemplo: si x = 18, se da una de las dos cosas pedidas, es decir, con eso nos alcanza. Caso contrario, si x = 3, NO es mayor a 5 PERO es menor a 10, entonces también nos alcanza y se va a ejecutar. Por ultimo también es importante dejar en claro que si se dan las dos condiciones, por ejemplo x = 8, también se va a ejecutar ya que el || (o), así como en la vida real, deja la puerta abierta a que sucedan las dos cosas juntas si se quiere, aunque no es condicion indispensable como en el caso del &&).
+
+OPERADORES DE IGUALDAD
+!=
+!==
+Estos operadores son conocidos como NOT (en español "no"). Es decir que la condición que piden es que sea desigual a con lo que lo estamos comparando para que la función corra o de true. Mostremos un ejemplo para que sea claro:
+2 + 2 != 5 (esto me va a dar true ya que 2+2 no es 5)
+2 + 2 != 4 (esto me va a dar false ya que 2+2 si es 4, y lo que nosotros estamos buscando con este operador es que no sea igual para dar verdadero)
+
+Diferencias entre estos	operadores: != difiere de !== en que el primero no tiene en cuenta el tipo de dato. Supongamos que nosotros estamos comparando un string con un numero, en este caso el operador != va a transformar uno de ellos para que sean del mismo tipo de dato (por ejemplo si comparamos el string 5 con el numero 5, es decir "5" con 5, y usamos el operador != vamos a ver que el sistema transforma ese string "5" en un numero 5 para poder tener los dos mismos tipos de datos y poder llevar a cabo una comparación. En este ejemplo: 5 != "5" me va a dar false ya que me va a transformar en dos numeros 5 y entonces van a ser iguales, y yo estaría preguntando si 5 es desigual a 5). Con el operador !== esto no sucede, ya que en este caso si se diferencia tipo de dato, es decir puedo comparar numero con numero, string con string, etc. Volviendo al caso anterior, en 5 !== "5" me va a dar true ya que 5 es desigual a "5" (el primero es un numero y el segundo es un string).
