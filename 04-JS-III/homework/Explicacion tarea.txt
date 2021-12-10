@@ -1,0 +1,24 @@
+ARRAYS: Un array (arreglo en español) es parecido a una variable, con la diferencia de que en el caso del array, se permiten incluir multiples datos. Un ejemplo de un array sería:
+arrayEjemplo = ['pedro', 'juan', 'marcelo', 7 , 29 , true , undefined , -8];
+
+Como podemos ver, en este arreglo encontramos multiples datos y diferentes tipos de datos.
+Es importante notar que los array nos permiten identificar cada dato asignandosele un numero correlativo partiendo del 0.
+Es decir en este caso 'pedro' sería el 0, 'juan' el 1, true el 5, etc.
+Esto nos permite invocar uno de los datos identificado su numero entre corchetes, ejemplo:
+arrayEjemplo[4] === 7; (true) esto es verdadero ya que el dato numero 4 (empezando del cero) es el numero 7 en nuestro array.
+
+Habiendo explicado esto, cabe mencionar que los arrays nos permiten hacer muchisimas cosas, sería muy extenso explicarlas todas, pero entre ellas las principales son:
+
+.length: al igual que con los strings, si yo escribo arrayEjemplo.length estoy escribiendo el numero del largo del array, es decir, en este caso del ejemplo 8. Esto es muy util cuando no conocemos el largo del array. Principalmente para ejecutar bucles y dar un criterio de parada.
+
+.push: mediante el uso de este codigo procediendo al nombre del array, y precediendo al dato que querramos ingresar entre parentesis, podemos insertar mas elementos adentro de un array, al final del mismo. Ejemplo:
+arrayEjemplo.push('hector') en este caso estariamos agregando 'hector' al final de arrayEjemplo (despues de -8)
+
+.pop: este metodo se usa para hacer lo opuesto que con push, es decir, remover el ultimo dato en un array. Ejemplo:
+arrayEjemplo.pop() en este caso removeriamos el ultimo dato de nuestro array, el -8. Importante aclarar que los parentesis quedan vacios.
+
+.unshift: hace lo mismo que push, pero inserta el nuevo dato al principio en vez de al final.
+
+.shift: hace lo mismo que pop pero remueve el primer dato en vez del ultimo.
+
+Para terminar, es bueno hacer notar que las funcionalidades de un array combinado con bucles son increibles. Podemos recorrer todo un array en busqueda de datos sin siquiera saber ni que datos hay, ni cuantos son. Agregarle a esto condicionales como if multiplica aún mas nuestras posibilidades.
