@@ -1,0 +1,80 @@
+OBJETOS: Los objetos nos sirven para definir propiedades a las cuales les podemos asignar valores, que podemos acceder luego simplemente escribiendo el nombre de la propiedad (a la derecha de un punto(o corchete) que separa el nombre del objeto del nombre de la propiedad, el cual va a la izquierda de dicho punto). Veamoslo mas claramente con un ejemplo:
+
+objeto
+  ↓
+alumno = {
+	nombre: 'Martin',
+	apellido: 'Rodriguez',
+	edad: 14,
+	cuotaVigente: true,
+	imprimirNombreCompleto: function() {
+		console.log('Mis datos son: ' + this.nombre + ' ' + this.apellido) 
+		}
+	}
+
+Como podemos observar, a diferencia de un array, con un objeto podemos determinar propiedades (tambien conocidas como key) (en este caso son: nombre, apellido, edad, cuotaVigente e imprimirNombreCompleto) a las cuales le asignaremos valores (tambien conocidos como value) (en este caso son: Martin, Rodriguez, 14, true y una función/metodo que explicaremos luego). 
+
+Estos valores pueden ser: strings, numeros, booleanos, funciones(aquí llamadas metodos), arrays, etc. 
+
+Detras de cada valor pondremos una coma, no un punto y coma. Esta es la manera de que el sistema entienda que terminamos de asignarle valores a la propiedad en cuestión.
+
+Accedemos a estos valores de la siguiente manera: objeto.propiedad u objeto[propiedad], según se quiera usar dot notation (separación mediante un punto) o bracket notation (separación mediante corchetes), esta ultima permite hacer mas cosas que la primera.
+
+Volviendo al ejemplo, si quisieramos acceder al apellido del alumno simplemente lo invocariamos de la siguiente manera:
+alumno.apellido
+y la consola nos devolvería: 'Rodriguez'
+
+Supongamos que Martin tiene un segundo nombre, por lo tanto queremos asignarle dos valores a la propiedad nombre y decidimos hacer un array. Ahora mi objeto quedaría así:
+
+alumno = {
+	nombre: ['Martin', 'Andres'],
+	apellido: 'Rodriguez',
+	edad: 14,
+	cuotaVigente: true,
+	imprimirNombreCompleto: function() {
+		console.log('Mis datos son: ' + this.nombre + ' ' + this.apellido) 
+		}
+	}
+
+Y en este caso si solo quisieramos invocar el primer nombre lo haríamos así:
+alumno.nombre[0]
+Es tal cual como invocabamos un dato puntual de un array, solo que en este caso agregamos el objeto a la izquierda del punto.
+
+Por ultimo, es importante explicar que la palabra clave this dentro del metodo (recordemos que el metodo es una función que está dentro de un objeto) hace referencia al objeto. Es decir en esos casos que escribí this.nombre, es como si hubiera escrito alumno.nombre, por lo tanto esta función (metodo) me va a devolver Martin. Parece una tontería pero si nosotros escribiesemos alumno.nombre en lugar de usar this, esta función no sería escalable, es decir, deberiamos modificar el nombre del objeto (lo que va detrás del punto) cada vez que repliquemos esta función en un objeto diferente.
+
+BUCLE FOR IN:
+A diferencia de los arrays, que los podiamos recorrer con bucles como el FOR, WHILE, DO WHILE, los objetos necesitan un bucle distinto, ya que a los valores dentro de un objeto no se les asigna un numero como en el caso de una array, sino que van asignados a propiedades. Por lo tanto no es tan facil para un bucle como navegar con un valor atado a un indice (I) como haciamos antes.
+
+Entonces, este bucle FOR IN, nos va a permitir recorrer objetos en busqueda de propiedades o valores. Veamos primero como recorrrer propiedades:
+
+for (prop in alumno) {
+  console.log(prop)
+  }
+
+En este caso se imprimiría:
+
+nombre
+apellido
+edad
+cuotaVigente
+imprimirNombreCompleto
+
+Ya que son las propiedades, y nosotros estamos recorriendolas y con el console.log estamos pidiendo que se impriman.
+La palabra prop es una palabra aleatoria que inventé para este bucle, puede ser cualquier palabra.
+
+Si lo quisieramos es acceder a los valores de estas propiedades podemos hacer lo siguiente:
+
+for (prop in alumno) {
+  console.log(alumno[prop])
+  }
+
+En este caso se imprimiría:
+
+Martin
+Rodriguez
+14
+true
+Mis datos son: Martin Rodriguez
+
+
+
