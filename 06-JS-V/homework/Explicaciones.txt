@@ -1,0 +1,55 @@
+PROTOTYPE: Los prototypos se encuentran presentes en todos los objetos de JS. Si bien no están simplemente a la vista, el interprete los tiene en cuenta cuando busca una función que hayamos invocado (con una prioridad mas baja que dentro del objeto en si, es decir, si yo busco una función y NO está dentro del objeto, recién en ese momento el interprete va a buscarla al prototype del objeto, clase, u objeto global)
+
+Cuando escribimos, por ejemplo:
+
+var año = 2021;
+console.log(año.length);
+
+La consola me va a mostrar como resultado un 4 (que es largo de la variable 'año'), pero como puede ser? de donde sale esa función llamada .length? 
+Bueno esa es una de las tantas funciones que están presentes en el prototipo (prototype) de los objetos, están pero no las vemos.
+
+Para que es util esto? Bueno es un tema largo, pero supongamos que tengo una clase compuesta por varios objetos (hechos mediante una función constructora, no mediante con ES6), y quiero darle un metodo a dichos objetos sin tener que repetirlos como propiedad de cada uno de ellos. Bueno en ese caso, lo que puedo hacer es asignarle este metodo al prototipo de la clase que contiene estos objetos. Lo haremos usando la siguiente expresión:
+
+		nombre del 
+		metodo que		  name es un ejemplo,
+ clase	     queremos asignar            aquí va el argumento
+   ↓                ↓			     a imprimir
+Usuario.prototype.imprimir = function() {         ↓     
+				console.log(this.name)
+			      }		     ↑
+				      este this aquí 	
+				va a referir al objeto puntual
+				   que invoque la función
+
+De esta manera, gracias	al prototype de la clase (en este caso una que decidimos llamar Usuario) vamos a poder invocar este metodo desde cualquier objeto alojado en dicha clase, sin estar presente en cada uno de ellos. 
+
+Podriamos acceder a ver prototipos desde la consola escribiendo __proto__ a la derecha del punto del objeto al cual le querramos acceder al prototipo. Habiendo dicho esto, no es recomendable acceder a ellos ya que si por error llegasemos a modificarlos podriamos sufrir todo tipo de bugs (mas aún si modificasemos el prototype de window (en el navegador) o del objeto global (en node.js))
+
+Como nota de color, cabe destacar que al usar los metodos modernos de ES6 para armar clases, funciones constructoras, etc, estamos también trabajando sobre los prototipos aunqué no lo podamos ver, por eso es recomendable saber usar las dos tecnicas para conocer al menos que pasa detrás del telón cuando usamos estas tecnologías de ES6.
+
+CONSTRUCTORS (DE CLASES):
+Como expliqué antes, con la llegada de ES6 hace unos años atrás, se simplificó el armado de una clase. La sintaxis moderna es la siguiente:
+
+class Usuarios {
+  constructor(nombre, apellido, email) {
+	this.nombre = nombre;
+	this.apellido = apellido;
+	this.email = email;
+	}
+}
+
+En este caso estamos construyendo una clase, que sirve como una especie de plano en el cual fijamos propiedades que van a ser utilizadas luego por muchos usuarios, que gracias a esta tecnología, no tendremos que ingresar cada propiedad y asignarle su valor, sinó que solo ingresaremos valores los cuales se matchearan con las propiedades ya establecidas en la función constructora.
+El segundo paso de esta función constructora, es instanciarla con nuevos objetos, es decir, darle uso:
+
+var usuario1 = new Usuarios('Maria', 'Garcia', 'marigarcia@asd.com')
+
+Aca estamos generando un nuevo objeto llamado usuario1 el cual mediante la función new lo estamos agregando a la clase Usuarios, y le estamos dando los argumentos que iran enlazados con los que establecimos en la función constructora.
+
+Por ultimo, vale la pena mencionar que hay otra manera de crear funciones constructoras, el metodo que se usaba previo a ES6. y es simplemente haciendo una función, la cual (por convención) tendrá el primer caracter en mayusculas, así otros programadores notaran rapidamente que se trata de una función constructora. En este caso la sintaxis es la siguiente:
+function Usuario(usuario, nombre, email) {
+      this.usuario = usuario;
+      this.nombre = nombre;
+      this.email = email;
+    } 
+
+
